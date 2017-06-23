@@ -3,32 +3,42 @@ $(document).ready(function(){
 	var mini = document.getElementById('pom-input');	
 		function oneCount(arr){
 			var sum = 0;
-			for(var i=0;i<arr.length;i++)
-				if(arr[i] == '*' || arr[i] == '/')
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++)
+				{
+				if(arr[j] == '*' || arr[j] == '/')
 					{
-						if(arr[i] == '*') {sum = parseFloat(arr[i-1]) * parseFloat(arr[i+1]);
-												 arr[i+1] = sum;
-												 arr.splice(i-1,2);
+						if(arr[j] == '*') {sum = parseFloat(arr[j-1]) * parseFloat(arr[j+1]);
+												 arr[j+1] = sum;
+												 arr.splice(j-1,2);
+												 console.log(arr);
 												}
-						else{sum = parseFloat(arr[i-1]) / parseFloat(arr[i+1]);
-												 arr[i+1] = sum;
-												 arr.splice(i-1,2);}
+						else{sum = parseFloat(arr[j-1]) / parseFloat(arr[j+1]);
+												 arr[j+1] = sum;
+												 arr.splice(j-1,2);
+							  					console.log(arr);
+							 }
 						break;
 					}
-				else if (arr[i] == '+' || arr[i] == '-')
+				  
+				}
+				 if(arr[i] == '+' || arr[i] == '-')
 					{
 						if(arr[i] == '+') {sum = parseFloat(arr[i-1]) + parseFloat(arr[i+1]);
 												 arr[i+1] = sum;
 												 arr.splice(i-1,2);
+												 console.log(arr);
 												}
 										  else{sum = parseFloat(arr[i-1]) - parseFloat(arr[i+1]);
 												 arr[i+1] = sum;
 												 arr.splice(i-1,2);
+												 console.log(arr);
 												}
 						break;
 					}
+			}
 			if(arr.length > 1) oneCount(arr);
-			else {window.innerHTML = arr[0].toFixed(2);
+			else {window.innerHTML = arr[0];
 					mini.innerHTML = 'You are a pirat';
 				  }
 		}
@@ -79,7 +89,7 @@ $(document).ready(function(){
 							{
 								str+=arr[i];
 							}
-						if(i==0 && (arr[i] == '/' || arr[i] == '*'))
+						else if(i==0 && (arr[i] == '/' || arr[i] == '*'))
 							{
 								mini.innerHTML = 'You are a fucking idiot';
 							}
