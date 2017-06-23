@@ -28,7 +28,9 @@ $(document).ready(function(){
 						break;
 					}
 			if(arr.length > 1) oneCount(arr);
-			else window.innerHTML = arr[0].toFixed(2);
+			else {window.innerHTML = arr[0].toFixed(2);
+					mini.innerHTML = 'You are a pirat';
+				  }
 		}
 	
 	$(".button").click(function(){ 
@@ -72,9 +74,14 @@ $(document).ready(function(){
 			 	var str = '';
 				for(var i in arr)
 					{
-						if(i == 0 && arr[i] == '-')
+						
+						if(i == 0 && (arr[i] == '-' || arr[i] == '+'))
 							{
 								str+=arr[i];
+							}
+						if(i==0 && (arr[i] == '/' || arr[i] == '*'))
+							{
+								mini.innerHTML = 'You are a fucking idiot';
 							}
 						else if(arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*')
 							{
