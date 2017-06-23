@@ -72,7 +72,11 @@ $(document).ready(function(){
 			 	var str = '';
 				for(var i in arr)
 					{
-						if(arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*')
+						if(i == 0 && arr[i] == '-')
+							{
+								str+=arr[i];
+							}
+						else if(arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*')
 							{
 								gArr[index] = str;
 								str = '';
