@@ -58,6 +58,8 @@ $(document).ready(function(){
 		if(window.innerHTML[window.innerHTML.length - 1] == '-' && window.innerHTML[window.innerHTML.length - 2] == '-')
 			{
 				if(cliced == '-'){window.innerHTML = ''; mini.innerHTML = 'Two Mathematical signs in a row?';}
+				
+				else if(cliced == '0' || cliced == '1' || cliced == '2' || cliced == '3' || cliced == '4' || cliced == '5' || cliced == '6' || cliced == '7' || cliced == '8' || cliced == '9')$(window).append(cliced);
 			}
 		// brak możliwości wpisanie dwóch znaków matematycznych pod rząd
 		else if(window.innerHTML[window.innerHTML.length - 1] == '*' || window.innerHTML[window.innerHTML.length - 1] == '/' || window.innerHTML[window.innerHTML.length - 1] == '+' || window.innerHTML[window.innerHTML.length - 1] == '.' || window.innerHTML[window.innerHTML.length - 1] == '-')
