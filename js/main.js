@@ -119,8 +119,7 @@ $(document).ready(function(){
 				{
 				  window.innerHTML = gArr;
 				}
-			console.log(gArr);
-			 //else oneCount(gArr);
+			else oneCount(gArr);
 			}
 	});
 	
