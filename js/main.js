@@ -60,12 +60,12 @@ $(document).ready(function(){
 				if(cliced == '-'){window.innerHTML = ''; mini.innerHTML = 'Two Mathematical signs in a row?';}
 			}
 		// brak możliwości wpisanie dwóch znaków matematycznych pod rząd
-		if(window.innerHTML[window.innerHTML.length - 1] == '*' || window.innerHTML[window.innerHTML.length - 1] == '/' || window.innerHTML[window.innerHTML.length - 1] == '+' || window.innerHTML[window.innerHTML.length - 1] == '.')
+		else if(window.innerHTML[window.innerHTML.length - 1] == '*' || window.innerHTML[window.innerHTML.length - 1] == '/' || window.innerHTML[window.innerHTML.length - 1] == '+' || window.innerHTML[window.innerHTML.length - 1] == '.' || window.innerHTML[window.innerHTML.length - 1] == '-')
 			{
 				if(cliced == '.' || cliced == '+' || cliced == '/' || cliced == '*') {window.innerHTML = ''; 
 																											 mini.innerHTML = 'Two Mathematical signs in a row?';}
 					
-				else if(cliced == '0' || cliced == '1' || cliced == '2' || cliced == '3' || cliced == '4' || cliced == '5' || cliced == '6' || cliced == '7' || cliced == '8' || cliced == '9') $(window).append(cliced);
+				else if(cliced == '0' || cliced == '1' || cliced == '2' || cliced == '3' || cliced == '4' || cliced == '5' || cliced == '6' || cliced == '7' || cliced == '8' || cliced == '9' || cliced == '-')$(window).append(cliced);
 			}
 		// wstukiwanie liczb i znaków w kalkulator
 		else if(cliced == '.'|| cliced == '0' || cliced == '1' || cliced == '2' || cliced == '3' || cliced == '4' || cliced == '5' || cliced == '6' || cliced == '7' || cliced == '8' || cliced == '9' || cliced == '+' || cliced == '-' || cliced == '/' || cliced == '*')
@@ -88,8 +88,11 @@ $(document).ready(function(){
 			 	var str = '';
 				for(var i in arr)
 					{
-						
-						if(i == 0 && (arr[i] == '-' || arr[i] == '+') || arr[i-1] == '-')
+						if(arr[i] == '-' && (arr[i-1] == '+' || arr[i-1] == '*' || arr[i-1] == '/'))
+							{
+								str+=arr[i];
+							}		
+						else if(i == 0 && (arr[i] == '-' || arr[i] == '+') || arr[i-1] == '-')
 							{
 								str+=arr[i];
 							}
@@ -116,7 +119,8 @@ $(document).ready(function(){
 				{
 				  window.innerHTML = gArr;
 				}
-			else oneCount(gArr);
+			console.log(gArr);
+			 //else oneCount(gArr);
 			}
 	});
 	
