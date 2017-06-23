@@ -39,7 +39,7 @@ $(document).ready(function(){
 			}
 			if(arr.length > 1) oneCount(arr);
 			else {window.innerHTML = arr[0];
-					mini.innerHTML = 'You are a pirat';
+					mini.innerHTML = 'You are great';
 				  }
 		}
 	
@@ -100,7 +100,7 @@ $(document).ready(function(){
 							}
 						else if(i==0 && (arr[i] == '/' || arr[i] == '*'))
 							{
-								mini.innerHTML = 'You are a fucking idiot';
+								mini.innerHTML = 'Are you kidding me?';
 							}
 						else if(arr[i] == '+' || arr[i] == '-' || arr[i] == '/' || arr[i] == '*')
 							{
